@@ -22,6 +22,11 @@ public class StudentController {
 
     @GetMapping("/students/{index}")
     public Student getStudentById(@PathVariable Integer index) {
-        return this.studentService.getStudentsById(index);
+        return this.studentService.getStudentById(index);
+    }
+
+    @PostMapping("/new-student")
+    public void getStudentById(@RequestBody  Student student) {
+        this.studentService.addNewStudent(student);
     }
 }

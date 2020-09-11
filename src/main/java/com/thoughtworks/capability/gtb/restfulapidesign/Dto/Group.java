@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Group {
-    @JsonProperty("groupId")
+    //@JsonProperty("groupId")
     private Integer id;
 
-    @JsonProperty("groupName")
+    //@JsonProperty("groupName")
     private String name;
 
-    @JsonProperty("groupNote")
+    //@JsonProperty("groupNote")
     private String note;
 }

@@ -9,14 +9,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Student {
-    @JsonProperty("studentId")
+    //@JsonProperty("studentId")
     private Integer id;
 
-    @JsonProperty("studentName")
+    //@JsonProperty("studentName")
     private String name;
 
     private String gender;
 
-    @JsonProperty("studentNote")
+    //@JsonProperty("studentNote")
     private String note;
 }

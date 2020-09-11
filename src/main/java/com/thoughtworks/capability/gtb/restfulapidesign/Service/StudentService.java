@@ -2,6 +2,7 @@ package com.thoughtworks.capability.gtb.restfulapidesign.Service;
 
 import com.thoughtworks.capability.gtb.restfulapidesign.Dto.Student;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +23,11 @@ public class StudentService {
         return new ArrayList<Student>(studentMap.values());
     }
 
-    public Student getStudentsById(Integer id){
+    public Student getStudentById(Integer id){
         return studentMap.get(id);
+    }
+
+    public void addNewStudent(Student student){
+        studentMap.put(student.getId(),student);
     }
 }
