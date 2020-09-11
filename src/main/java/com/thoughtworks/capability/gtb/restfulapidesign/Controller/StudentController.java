@@ -3,6 +3,7 @@ package com.thoughtworks.capability.gtb.restfulapidesign.Controller;
 import com.thoughtworks.capability.gtb.restfulapidesign.Dto.Student;
 import com.thoughtworks.capability.gtb.restfulapidesign.Service.StudentService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,4 +35,11 @@ public class StudentController {
     public void deleteUser(@PathVariable Integer index){
         this.studentService.deleteStudentById(index);
     }
+
+    @PatchMapping("/updateInfo/{index}")
+    public void updateStudent(@PathVariable Integer index,
+                              @RequestBody Student student){
+        this.studentService.updateStudentById(index, student);
+    }
+
 }

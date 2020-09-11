@@ -15,7 +15,7 @@ public class StudentService {
 
     public StudentService(){
         studentMap.put(1, new Student(1,"Alice","female","allergic to nuts"));
-        studentMap.put(2, new Student(2,"Tome","male",null));
+        studentMap.put(2, new Student(2,"Tom","male",null));
         studentMap.put(3, new Student(3,"July","female",null));
     }
 
@@ -33,5 +33,14 @@ public class StudentService {
 
     public void deleteStudentById(Integer id){
         studentMap.remove(id);
+    }
+
+    public void updateStudentById(Integer id,Student updateImfo) {
+        Student student = studentMap.get(id);
+        if (student != null){
+            student.setGender(updateImfo.getGender());
+            student.setName(updateImfo.getName());
+            student.setNote(updateImfo.getNote());
+        }
     }
 }
