@@ -40,7 +40,7 @@ public class StudentController {
         this.studentService.deleteStudentById(index);
     }
 
-    @PatchMapping("/updateInfo/{index}")
+    @PatchMapping("/update-student/{index}")
     public void updateStudent(@PathVariable Integer index,
                               @RequestBody Student student){
         this.studentService.updateStudentById(index, student);
