@@ -2,6 +2,7 @@ package com.thoughtworks.capability.gtb.restfulapidesign.Controller;
 
 import com.thoughtworks.capability.gtb.restfulapidesign.Dto.Student;
 import com.thoughtworks.capability.gtb.restfulapidesign.Service.StudentService;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,10 @@ public class StudentController {
     }
 
     @GetMapping("/students")
-    public List<Student> getAllStudents() {
+    public List<Student> getAllStudents(@RequestParam(value="gender", required = false) String gender) {
+        if (gender != null){
+            return this.studentService.getStudentsByGender(gender);
+        }
         return this.studentService.getAllStudents();
     }
 
