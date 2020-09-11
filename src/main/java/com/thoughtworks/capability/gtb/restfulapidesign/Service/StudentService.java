@@ -30,4 +30,8 @@ public class StudentService {
     public void addNewStudent(Student student){
         studentMap.put(student.getId(),student);
     }
+
+    public void deleteStudentById(Integer id){
+        studentMap.remove(id);
+    }
 }

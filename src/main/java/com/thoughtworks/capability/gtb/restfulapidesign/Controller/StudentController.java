@@ -29,4 +29,9 @@ public class StudentController {
     public void getStudentById(@RequestBody  Student student) {
         this.studentService.addNewStudent(student);
     }
+
+    @DeleteMapping("/delete/{index}")
+    public void deleteUser(@PathVariable Integer index){
+        this.studentService.deleteStudentById(index);
+    }
 }
