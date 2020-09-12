@@ -1,30 +1,30 @@
 package com.thoughtworks.capability.gtb.restfulapidesign.Controller;
 
 import com.thoughtworks.capability.gtb.restfulapidesign.Dto.Group;
-import com.thoughtworks.capability.gtb.restfulapidesign.Dto.Student;
-import com.thoughtworks.capability.gtb.restfulapidesign.Service.GroupService;
-import com.thoughtworks.capability.gtb.restfulapidesign.Service.StudentService;
+
+import com.thoughtworks.capability.gtb.restfulapidesign.Service.SystemService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class GroupController {
-    private final GroupService groupService;
+    private final SystemService systemService;
 
-    public GroupController(GroupService groupService) {
-        this.groupService = groupService;
+    public GroupController(SystemService groupService) {
+        this.systemService = groupService;
     }
 
     @GetMapping("/groups")
     public List<Group> getAllStudents() {
-        return this.groupService.getAllGroups();
+        this.systemService.divideStudentToGroup();
+        return this.systemService.getAllGroups();
     }
 
 
     @PatchMapping("/update-group/{index}")
     public void updateStudent(@PathVariable Integer index,
                               @RequestBody Group group){
-        this.groupService.updateGroupsById(index, group);
+        this.systemService.updateGroupsById(index, group);
     }
 }
