@@ -10,14 +10,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Student {
 
-    //@JsonProperty("studentId")
     private Integer id;
 
-    //@JsonProperty("studentName")
     private String name;
 
     private String gender;
 
-    //@JsonProperty("studentNote")
     private String note;
 }
