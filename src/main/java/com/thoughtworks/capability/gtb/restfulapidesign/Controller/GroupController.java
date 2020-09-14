@@ -22,7 +22,7 @@ public class GroupController {
     }
 
 
-    @PatchMapping("/update-group/{index}")
+    @PatchMapping("/groups/{index}")
     public void updateStudent(@PathVariable Integer index,
                               @RequestBody Group group){
         this.systemService.updateGroupsById(index, group);

@@ -82,20 +82,33 @@ public class SystemService {
 
     public void divideStudentToGroup() {
         int[] studentInEachGroup = this.getEachNumberOfStudentsInGroup();
+//        List<Integer> studentRandomIndex = this.randomStudentIndex();
 
         groupMap.forEach ((groupId, group) -> {
             List<Student> studentsInThisGroup = new ArrayList<Student>();
-//          studentMap.forEach( (studentId, student) -> studentsInThisGroup.add(student));
             int indexStart = 0;
             for (int k =2; k <= groupId;k++){
                 indexStart += studentInEachGroup[k-2];
             }
             for (int j=1; j<=studentInEachGroup[groupId-1]; j++) {
+//               studentsInThisGroup.add(studentMap.get(studentRandomIndex.get(groupId+1)));
                 studentsInThisGroup.add(studentMap.get(j+indexStart));
             }
             groupMap.get(groupId).setStudents(studentsInThisGroup);
         });
     }
+
+//    public List<Integer> randomStudentIndex(){
+//        int studentAmount = studentMap.size();
+//        List<Integer> studentRandomIndex = new ArrayList<Integer>();
+//        studentMap.forEach((index,student) -> {
+//            int randomIndex = (int)(Math.random()*studentAmount+1);
+//            if (studentRandomIndex==null && studentRandomIndex.indexOf(randomIndex)==-1){
+//                studentRandomIndex.add(randomIndex);
+//            }
+//        });
+//        return studentRandomIndex;
+//    }
 
     public int[] getEachNumberOfStudentsInGroup(){
         int studentAmount = studentMap.size();

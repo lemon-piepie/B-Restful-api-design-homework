@@ -27,17 +27,17 @@ public class StudentController {
         return this.systemService.getStudentById(index);
     }
 
-    @PostMapping("/new-student")
+    @PostMapping("/students")
     public void getStudentById(@RequestBody  Student student) {
         this.systemService.addNewStudent(student);
     }
 
-    @DeleteMapping("/delete/{index}")
+    @DeleteMapping("/students/{index}")
     public void deleteUser(@PathVariable Integer index){
         this.systemService.deleteStudentById(index);
     }
 
-    @PatchMapping("/update-student/{index}")
+    @PatchMapping("/students/{index}")
     public void updateStudent(@PathVariable Integer index,
                               @RequestBody Student student){
         this.systemService.updateStudentById(index, student);
